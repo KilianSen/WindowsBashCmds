@@ -27,6 +27,6 @@ Remove-Item $ZipFile -Force
 
 Write-Host "Running local installer..." -ForegroundColor Gray
 Set-Location -Path $InstallDir
-& ".\install.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\install.ps1"
 
 Write-Host "[WindowsBashCmds] Remote installation complete!" -ForegroundColor Green
