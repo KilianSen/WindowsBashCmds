@@ -35,6 +35,7 @@ foreach ($cmd in $conflicts) {
 
 $ProfileUpdate = @"
 
+# WindowsBashCmds BEGIN
 # WindowsBashCmds - Remove conflicting aliases to use shims
 `$conflicts = @("ls", "cp", "mv", "rm", "cat", "pwd", "clear", "kill", "ps", "diff", "man")
 foreach (`$cmd in `$conflicts) {
@@ -42,6 +43,7 @@ foreach (`$cmd in `$conflicts) {
         Remove-Item "Alias:`$cmd" -ErrorAction SilentlyContinue
     }
 }
+# WindowsBashCmds END
 "@
 
 if ($PSVersionTable.PSVersion.Major -ge 5) {
