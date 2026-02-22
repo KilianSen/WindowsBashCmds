@@ -45,6 +45,11 @@ foreach (`$cmd in `$conflicts) {
 "@
 
 if ($PSVersionTable.PSVersion.Major -ge 5) {
+    $ProfileDir = Split-Path $PROFILE -Parent
+    if (-not (Test-Path $ProfileDir)) {
+        New-Item -Path $ProfileDir -Type Directory -Force | Out-Null
+    }
+    
     if (-not (Test-Path $PROFILE)) {
         New-Item -Path $PROFILE -Type File -Force | Out-Null
     }
