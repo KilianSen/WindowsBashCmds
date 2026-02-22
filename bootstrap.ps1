@@ -4,9 +4,11 @@ $InstallDir = Join-Path $HOME ".windows-bash-cmds"
 
 Write-Host "[WindowsBashCmds] Preparing remote installation..." -ForegroundColor Cyan
 
-if (!(Test-Path $InstallDir)) {
-    New-Item -ItemType Directory -Path $InstallDir | Out-Null
+if (Test-Path $InstallDir) {
+    Write-Host "Cleaning existing installation directory..." -ForegroundColor Gray
+    Remove-Item -Path $InstallDir -Recurse -Force
 }
+New-Item -ItemType Directory -Path $InstallDir | Out-Null
 
 $ZipFile = Join-Path $InstallDir "repo.zip"
 
@@ -19,7 +21,9 @@ Expand-Archive -Path $ZipFile -DestinationPath $InstallDir -Force
 # Move files out of the nested folder created by GitHub ZIP
 $ExtractedFolder = Get-ChildItem -Path $InstallDir -Directory | Where-Object { $_.Name -like "WindowsBashCmds*" } | Select-Object -First 1
 if ($ExtractedFolder) {
-    Get-ChildItem -Path $ExtractedFolder.FullName | Move-Item -Destination $InstallDir -Force
+    Get-ChildItem -Path $ExtractedFolder.FullName | ForEach-Object {
+        Move-Item -Path $_.FullName -Destination $InstallDir -Force
+    }
     Remove-Item $ExtractedFolder.FullName -Recurse -Force
 }
 
