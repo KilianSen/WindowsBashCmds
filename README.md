@@ -20,12 +20,12 @@ Add common Bash/Linux commands to your Windows environment (CMD and PowerShell) 
 
 ### PowerShell
 ```powershell
-irm https://raw.githubusercontent.com/KilianSen/WindowsBashCmds/main/bootstrap.ps1 | iex
+irm https://raw.githubusercontent.com/KilianSen/WindowsBashCmds/master/bootstrap.ps1 | iex
 ```
 
 ### Command Prompt (CMD)
 ```batch
-powershell -c "irm https://raw.githubusercontent.com/KilianSen/WindowsBashCmds/main/bootstrap.ps1 | iex"
+powershell -c "irm https://raw.githubusercontent.com/KilianSen/WindowsBashCmds/master/bootstrap.ps1 | iex"
 ```
 *(Replace `KilianSen` with your GitHub username)*
 

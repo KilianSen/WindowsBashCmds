@@ -1,5 +1,5 @@
 # bootstrap.ps1 - Remote installer for WindowsBashCmds
-$RepoUrl = "https://github.com/KilianSen/WindowsBashCmds/archive/refs/heads/main.zip"
+$RepoUrl = "https://github.com/KilianSen/WindowsBashCmds/archive/refs/heads/master.zip"
 $InstallDir = Join-Path $HOME ".windows-bash-cmds"
 
 Write-Host "[WindowsBashCmds] Preparing remote installation..." -ForegroundColor Cyan
