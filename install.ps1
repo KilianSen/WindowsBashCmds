@@ -54,7 +54,7 @@ if ($PSVersionTable.PSVersion.Major -ge 5) {
         New-Item -Path $PROFILE -Type File -Force | Out-Null
     }
     
-    if ((Get-Content $PROFILE) -notmatch "WindowsBashCmds") {
+    if (-not (Select-String -Path $PROFILE -Pattern "WindowsBashCmds" -Quiet)) {
         Add-Content -Path $PROFILE -Value $ProfileUpdate
     }
 }
