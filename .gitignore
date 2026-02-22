@@ -1,0 +1,16 @@
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporary files
+*~
+*.log
+*.tmp
+*.bak
